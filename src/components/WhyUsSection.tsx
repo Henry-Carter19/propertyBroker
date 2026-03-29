@@ -2,66 +2,92 @@ import { useIntersectionObserver } from "../hooks/hooks";
 
 export default function WhyUsSection() {
   const { ref, visible } = useIntersectionObserver();
-
   const features = [
-    {
-      icon: "🛡️",
-      title: "RERA Verified",
-      desc: "All properties are verified and legally safe.",
-    },
-    {
-      icon: "🔍",
-      title: "Smart Search",
-      desc: "Advanced filters to find your perfect home.",
-    },
-    {
-      icon: "📞",
-      title: "Expert Support",
-      desc: "Get help from property experts anytime.",
-    },
-    {
-      icon: "🏆",
-      title: "Trusted Platform",
-      desc: "Used by millions across India.",
-    },
+    { icon: "🛡️", title: "RERA Verified", desc: "Every listing verified with RERA registration for complete legal safety." },
+    { icon: "🔍", title: "Smart Search", desc: "AI-powered filters to match your budget, location, and lifestyle preferences." },
+    { icon: "📞", title: "Expert Connect", desc: "Dedicated property advisors available 7 days a week for personal guidance." },
+    { icon: "🏆", title: "1.2M+ Transactions", desc: "India's most trusted platform with over a decade of real estate expertise." },
   ];
 
   return (
     <section
       ref={ref}
       style={{
-        padding: 60,
-        background: "#0f172a",
-        color: "#fff",
+        padding: "100px 40px",
+        background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <h2 style={{ textAlign: "center", marginBottom: 40 }}>
-        Why Choose Us
-      </h2>
-
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 20,
-          maxWidth: 1000,
-          margin: "0 auto",
+          position: "absolute",
+          inset: 0,
+          opacity: 0.05,
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
         }}
-      >
-        {features.map((f, i) => (
-          <div
-            key={i}
+      />
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: 64,
+            opacity: visible ? 1 : 0,
+            transition: "all 0.7s ease",
+          }}
+        >
+          <h2
             style={{
-              textAlign: "center",
-              opacity: visible ? 1 : 0.5,
-              transition: "0.5s",
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: "clamp(30px, 4vw, 48px)",
+              fontWeight: 800,
+              color: "#fff",
+              margin: "0 0 16px",
             }}
           >
-            <div style={{ fontSize: 40 }}>{f.icon}</div>
-            <h3>{f.title}</h3>
-            <p style={{ color: "#ccc" }}>{f.desc}</p>
-          </div>
-        ))}
+            Why Choose NestFinder?
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 17, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>
+            Built for India's homebuyers. Trusted by millions.
+          </p>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} ref={ref}>
+          {features.map((f, i) => (
+            <div
+              key={i}
+              style={{
+                background: "rgba(255,255,255,0.06)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                borderRadius: 20,
+                padding: "32px 28px",
+                textAlign: "center",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(40px)",
+                transition: `all 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s`,
+                cursor: "default",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(37,99,235,0.2)";
+                e.currentTarget.style.borderColor = "rgba(96,165,250,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
+              }}
+            >
+              <div style={{ fontSize: 40, marginBottom: 20 }}>{f.icon}</div>
+              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 20, fontWeight: 700, color: "#fff", margin: "0 0 12px" }}>
+                {f.title}
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 14, lineHeight: 1.7, margin: 0, fontFamily: "'DM Sans', sans-serif" }}>
+                {f.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

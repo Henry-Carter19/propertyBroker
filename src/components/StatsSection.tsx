@@ -9,11 +9,32 @@ function StatCard({ stat, visible }: { stat: Stat; visible: boolean }) {
     <div
       style={{
         textAlign: "center",
-        padding: 20,
+        padding: "24px 0",
+        borderRight: "1px solid #f1f5f9",
       }}
     >
-      <h2 style={{ fontSize: 28 }}>{count}</h2>
-      <p style={{ color: "#666" }}>{stat.label}</p>
+      <div
+        style={{
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontSize: "clamp(28px, 3.5vw, 44px)",
+          fontWeight: 800,
+          color: "#1a3c5e",
+          lineHeight: 1,
+        }}
+      >
+        {count}
+      </div>
+      <div
+        style={{
+          color: "#94a3b8",
+          fontSize: 14,
+          marginTop: 6,
+          fontFamily: "'DM Sans', sans-serif",
+          fontWeight: 500,
+        }}
+      >
+        {stat.label}
+      </div>
     </div>
   );
 }
@@ -25,21 +46,31 @@ export default function StatsSection() {
     <section
       ref={ref}
       style={{
-        padding: "60px 20px",
+        padding: "60px 40px",
         background: "#fff",
-        borderBottom: "1px solid #eee",
+        borderBottom: "1px solid #f1f5f9",
       }}
     >
       <div
         style={{
+          maxWidth: 1100,
+          margin: "0 auto",
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          maxWidth: 1000,
-          margin: "0 auto",
+          gap: 0,
         }}
       >
-        {STATS.map((stat) => (
-          <StatCard key={stat.label} stat={stat} visible={visible} />
+        {STATS.map((stat, i) => (
+          <div
+            key={stat.label}
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(20px)",
+              transition: `all 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s`,
+            }}
+          >
+            <StatCard stat={stat} visible={visible} />
+          </div>
         ))}
       </div>
     </section>
