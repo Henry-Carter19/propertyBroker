@@ -46,7 +46,7 @@ export default function WhyUsSection() {
               margin: "0 0 16px",
             }}
           >
-            Why Choose NestFinder?
+            Why Choose PropertyBroker?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 17, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>
             Built for India's homebuyers. Trusted by millions.

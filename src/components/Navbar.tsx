@@ -63,7 +63,7 @@ export default function Navbar() {
             transition: "color 0.4s",
           }}
         >
-          NestFinder
+          PropertyBroker
         </span>
       </div>
 

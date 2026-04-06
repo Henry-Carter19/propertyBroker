@@ -43,7 +43,7 @@ export default function Footer() {
                   color: "#fff",
                 }}
               >
-                NestFinder
+                PropertyBroker
               </span>
             </div>
             <p
@@ -100,7 +100,7 @@ export default function Footer() {
           }}
         >
           <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
-            © 2025 NestFinder. All rights reserved.
+            © 2025 PropertyBroker. All rights reserved.
           </p>
           <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
             🇮🇳 Made for India

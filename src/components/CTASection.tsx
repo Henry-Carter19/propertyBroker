@@ -71,7 +71,7 @@ export default function CTASection() {
             position: "relative",
           }}
         >
-          Join 1.2 million happy homeowners who found their perfect property on NestFinder.
+          Join 1.2 million happy homeowners who found their perfect property on PropertyBroker.
         </p>
         <div
           style={{
