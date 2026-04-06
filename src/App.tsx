@@ -6,6 +6,7 @@ import CitiesSection from "./components/CitiesSection";
 import WhyUsSection from "./components/WhyUsSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <WhyUsSection />
       <CTASection />
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }
