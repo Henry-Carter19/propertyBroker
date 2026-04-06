@@ -11,8 +11,9 @@ export default function HeroSection() {
         minHeight: "100vh",
         position: "relative",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start", // changed from center
         justifyContent: "center",
+        paddingTop: "120px", // pushes content below navbar
         overflow: "hidden",
       }}
     >
@@ -62,39 +63,50 @@ export default function HeroSection() {
           animation: "fadeUp 1s ease both",
         }}
       >
+
+
         <div
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            background: "rgba(255,255,255,0.12)",
-            backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.2)",
-            borderRadius: 100,
-            padding: "8px 20px",
-            marginBottom: 28,
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            marginBottom: 20,
           }}
         >
-          <span
+          <div
             style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: "#10b981",
-              display: "inline-block",
-              boxShadow: "0 0 8px #10b981",
-            }}
-          />
-          <span
-            style={{
-              color: "rgba(255,255,255,0.9)",
-              fontSize: 13,
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 500,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255,255,255,0.12)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.2)",
+              borderRadius: 999,
+              padding: "6px 18px",
             }}
           >
-            India's most trusted property platform
-          </span>
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                background: "#10b981",
+                boxShadow: "0 0 8px #10b981",
+              }}
+            />
+            <span
+              style={{
+                color: "rgba(255,255,255,0.9)",
+                fontSize: 13,
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 500,
+                lineHeight: 1,
+                letterSpacing: "0.3px",
+              }}
+            >
+              Nagpur's most trusted property platform
+            </span>
+          </div>
         </div>
 
         <h1
@@ -127,17 +139,18 @@ export default function HeroSection() {
         </p>
 
         {/* Search Card */}
-        <div
-          style={{
-            background: "rgba(255,255,255,0.97)",
-            borderRadius: 20,
-            overflow: "hidden",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
-            backdropFilter: "blur(20px)",
-            maxWidth: 780,
-            margin: "0 auto",
-          }}
-        >
+       {/* Search Card */}
+<div
+  style={{
+    background: "rgba(255,255,255,0.97)",
+    borderRadius: 20,
+    overflow: "hidden",
+    boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
+    backdropFilter: "blur(20px)",
+    maxWidth: 780,
+    margin: "20px auto 80px", // 🔥 KEY FIX (top + bottom spacing)
+  }}
+>
           {/* Tabs */}
           <div style={{ display: "flex", borderBottom: "1px solid #f1f5f9" }}>
             {(["Buy", "Rent", "Sell"] as const).map((tab) => (
