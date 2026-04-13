@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Privacy() {
   return (
     <div style={{ paddingTop: "80px", minHeight: "100vh", backgroundColor: "#f9fafb" }}>
