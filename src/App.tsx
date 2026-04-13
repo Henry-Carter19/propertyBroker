@@ -1,25 +1,21 @@
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import StatsSection from "./components/StatsSection";
-import PropertyCarousel from "./components/PropertyCarousel";
-import CitiesSection from "./components/CitiesSection";
-import WhyUsSection from "./components/WhyUsSection";
-import CTASection from "./components/CTASection";
-import Footer from "./components/Footer";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <HeroSection />
-      <StatsSection />
-      <PropertyCarousel />
-      <CitiesSection />
-      <WhyUsSection />
-      <CTASection />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
+      </Routes>
       <Footer />
       <WhatsAppFloat />
-    </>
+    </Router>
   );
 }

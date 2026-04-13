@@ -1,108 +1,78 @@
+import { Link } from "react-router-dom";
+import "../styles/footer.css";
+
 export default function Footer() {
+  const year = new Date().getFullYear();
+
+  const footerData = [
+    {
+      title: "Company",
+      links: [
+        { label: "About Us", path: "/about" },
+        { label: "Careers", path: "/careers" },
+        { label: "Press", path: "/press" },
+        { label: "Blog", path: "/blog" },
+      ],
+    },
+    {
+      title: "Properties",
+      links: [
+        { label: "Buy", path: "/buy" },
+        { label: "Rent", path: "/rent" },
+        { label: "Commercial", path: "/commercial" },
+        { label: "New Projects", path: "/projects" },
+      ],
+    },
+    {
+      title: "Support",
+      links: [
+        { label: "Help Center", path: "/help" },
+        { label: "Contact Us", path: "/contact" },
+        { label: "Privacy Policy", path: "/privacy-policy" },
+        { label: "Terms", path: "/terms" },
+      ],
+    },
+  ];
+
   return (
-    <footer
-      style={{
-        background: "#0f172a",
-        padding: "60px 40px 32px",
-        borderTop: "1px solid rgba(255,255,255,0.05)",
-      }}
-    >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
-            gap: 48,
-            marginBottom: 48,
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 10,
-                  background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 18,
-                  fontWeight: 900,
-                  color: "#fff",
-                  fontFamily: "serif",
-                }}
-              >
-                N
-              </div>
-              <span
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: "#fff",
-                }}
-              >
-                PropertyBroker
-              </span>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-grid">
+          {/* Logo Section */}
+          <div className="footer-logo-section">
+            <div className="footer-logo">
+              <div className="footer-logo-icon">N</div>
+              <span className="footer-logo-text">PropertyBroker</span>
             </div>
-            <p
-              style={{
-                color: "rgba(255,255,255,0.4)",
-                fontSize: 14,
-                lineHeight: 1.8,
-                fontFamily: "'DM Sans', sans-serif",
-                maxWidth: 280,
-              }}
-            >
+
+            <p className="footer-description">
               India's most trusted real estate platform. Find, buy, rent and sell properties with confidence.
             </p>
           </div>
 
-          {[
-            { title: "Company", links: ["About Us", "Careers", "Press", "Blog"] },
-            { title: "Properties", links: ["Buy", "Rent", "Commercial", "New Projects"] },
-            { title: "Support", links: ["Help Center", "Contact Us", "Privacy Policy", "Terms"] },
-          ].map((col) => (
-            <div key={col.title}>
-              <h4 style={{ color: "#fff", fontWeight: 700, fontSize: 15, marginBottom: 20, fontFamily: "'DM Sans', sans-serif" }}>
-                {col.title}
-              </h4>
+          {/* Dynamic Links */}
+          {footerData.map((col) => (
+            <div key={col.title} className="footer-column">
+              <h4 className="footer-column-title">{col.title}</h4>
+
               {col.links.map((link) => (
-                <div key={link} style={{ marginBottom: 12 }}>
-                  <a
-                    href="#"
-                    style={{
-                      color: "rgba(255,255,255,0.4)",
-                      fontSize: 14,
-                      textDecoration: "none",
-                      fontFamily: "'DM Sans', sans-serif",
-                      transition: "color 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#60a5fa")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
-                  >
-                    {link}
-                  </a>
+                <div key={link.label} className="footer-link-item">
+                  <Link to={link.path} className="footer-link">
+                    {link.label}
+                  </Link>
                 </div>
               ))}
             </div>
           ))}
         </div>
 
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.07)",
-            paddingTop: 28,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
-            © 2025 PropertyBroker. All rights reserved.
+        {/* Bottom */}
+        <div className="footer-bottom">
+          <p className="footer-copyright">
+            © {year} PropertyBroker. All rights reserved.
           </p>
-          <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
+
+          <p className="footer-made">
             🇮🇳 Made for India
           </p>
         </div>
