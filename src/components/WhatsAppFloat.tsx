@@ -6,7 +6,7 @@ export default function WhatsAppFloat() {
   const phoneNumber = "918381001406";
 
 const message = encodeURIComponent(
-  "Hello, I visited your website https://property-broker-ngp.vercel.app/ and I am interested in exploring property options. Kindly share more details at your convenience."
+  "Hello, I am interested in exploring your property listings. Kindly share more details.\n\nRegards,\n\nhttps://property-broker-ngp.vercel.app/"
 );
 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
