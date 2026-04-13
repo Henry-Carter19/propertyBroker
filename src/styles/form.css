@@ -440,6 +440,35 @@
   transform: translateX(3px);
 }
 
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.form-submit:disabled:hover {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 14px rgba(37, 99, 235, 0.35),
+    0 1px 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-submit-spinner {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  animation: form-spinner-rotate 1s linear infinite;
+  stroke: #ffffff;
+}
+
+@keyframes form-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Disclaimer */
 .form-disclaimer {
   text-align: center;

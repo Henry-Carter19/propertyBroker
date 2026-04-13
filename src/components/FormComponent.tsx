@@ -10,6 +10,7 @@ export default function FormComponent() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (
@@ -29,6 +30,8 @@ export default function FormComponent() {
       alert("Please fill all required fields");
       return;
     }
+
+    setLoading(true);
 
     try {
       const response = await emailjs.send(
@@ -50,6 +53,7 @@ export default function FormComponent() {
 
       setTimeout(() => {
         setSubmitted(false);
+        setLoading(false);
         setFormData({
           name: "",
           phone: "",
@@ -59,6 +63,7 @@ export default function FormComponent() {
       }, 3500);
     } catch (error) {
       console.error("Email failed:", JSON.stringify(error));
+      setLoading(false);
     }
   };
 
@@ -235,11 +240,22 @@ export default function FormComponent() {
                 </div>
               </div>
 
-              <button type="submit" className="form-submit">
-                <span>Request a Callback</span>
-                <svg viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <button type="submit" className="form-submit" disabled={loading}>
+                {loading ? (
+                  <>
+                    <span>Sending...</span>
+                    <svg className="form-submit-spinner" viewBox="0 0 50 50" fill="none">
+                      <circle cx="25" cy="25" r="20" stroke="currentColor" strokeWidth="3" strokeDasharray="31.4 94.2" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span>Request a Callback</span>
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </>
+                )}
               </button>
 
               <p className="form-disclaimer">
